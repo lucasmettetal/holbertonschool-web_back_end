@@ -35,3 +35,18 @@ const student4 = new StudentHolberton('Donald', 'Bush', class2019);
 const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
 export const listOfStudents = [student1, student2, student3, student4, student5];
+
+export default listOfStudents;
+
+/* CommonJS fallback for test environments that import with require() */
+// eslint-disable-next-line no-undef
+if (typeof module !== 'undefined' && module.exports) {
+  // Provide named and default exports for CommonJS
+  // eslint-disable-next-line no-param-reassign
+  module.exports = {
+    HolbertonClass,
+    StudentHolberton,
+    listOfStudents,
+    default: listOfStudents,
+  };
+}
