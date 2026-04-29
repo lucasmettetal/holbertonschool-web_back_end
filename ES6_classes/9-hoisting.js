@@ -41,12 +41,12 @@ export default listOfStudents;
 /* CommonJS fallback for test environments that import with require() */
 // eslint-disable-next-line no-undef
 if (typeof module !== 'undefined' && module.exports) {
-  // Provide named and default exports for CommonJS
+  // Export the array itself for CommonJS consumers that do `require('./9-hoisting')`
+  // while still providing named properties on that exported object.
   // eslint-disable-next-line no-param-reassign
-  module.exports = {
-    HolbertonClass,
-    StudentHolberton,
-    listOfStudents,
-    default: listOfStudents,
-  };
+  module.exports = listOfStudents;
+  module.exports.listOfStudents = listOfStudents;
+  module.exports.default = listOfStudents;
+  module.exports.HolbertonClass = HolbertonClass;
+  module.exports.StudentHolberton = StudentHolberton;
 }
